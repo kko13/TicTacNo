@@ -6,5 +6,7 @@ public class TicTacNo {
 
         //Simple gameboard output test
         gb.Display();
+        gb.UpdateBoard("X", 4);
+        gb.Display();
     }
 }
