@@ -8,13 +8,14 @@ public class TicTacNo
         System.out.println("Tic-Tac-No");
         System.out.println("Enter one of the following game types:");
         System.out.println("(1) Human vs Human");
-        System.out.println("(1) Human vs Computer");
-        System.out.println("(1) Computer vs Computer");
+        System.out.println("(2) Human vs Computer");
+        System.out.println("(3) Computer vs Computer");
 
         Scanner input = new Scanner(System.in);
         int gameType = input.nextInt();
         GameBoard gb = new GameBoard();
         Player p1, p2, currPlayer;
+        String winnner;
 
         switch(gameType)
         {
@@ -24,7 +25,7 @@ public class TicTacNo
                 p2 = new Human("O");
                 currPlayer = p1;
 
-                while(!gb.IsFull())
+                while(!gb.WinCheck(currPlayer.GetMark()) && !gb.IsFull())
                 {
                     System.out.printf("Current Player ---> %s\n", currPlayer.GetMark());
                     System.out.println("Select a space... (1-9)");
@@ -33,11 +34,17 @@ public class TicTacNo
                     gb.UpdateBoard(currPlayer.GetMark(), (input.nextInt()-1));
                     gb.Display();
 
+                    gb.WinCheck(currPlayer.GetMark());
                     if (currPlayer.GetMark() == p1.GetMark())
                         currPlayer = p2;
                     else
                         currPlayer = p1;
                 }
+
+                if (gb.IsFull())
+                    System.out.println("No winner! CAT!!!");
+                else
+                    System.out.printf("The winner is %s", currPlayer.GetMark());
                 break;
         }
     }

@@ -40,4 +40,47 @@ public class GameBoard
         else
             return false;
     }
+
+    boolean WinCheck(String s)
+    {
+        // Check victory by row
+        if ((gBoard[0] == s) && (gBoard[1] == s) && (gBoard[2] == s))
+        {
+            return true;
+        }
+        if ((gBoard[3] == s) && (gBoard[4] == s) && (gBoard[5] == s))
+        {
+            return true;
+        }
+        if ((gBoard[6] == s) && (gBoard[7] == s) && (gBoard[8] == s))
+        {
+            return true;
+        }
+
+        // Check victory by column
+        if ((gBoard[0] == s) && (gBoard[3] == s) && (gBoard[6] == s))
+        {
+            return true;
+        }
+        if ((gBoard[1] == s) && (gBoard[4] == s) && (gBoard[7] == s))
+        {
+            return true;
+        }
+        if ((gBoard[2] == s) && (gBoard[5] == s) && (gBoard[8] == s))
+        {
+            return true;
+        }
+
+        // Check victory by diagonal
+        if ((gBoard[0] == s) && (gBoard[4] == s) && (gBoard[8] == s))
+        {
+            return true;
+        }
+        if ((gBoard[2] == s) && (gBoard[4] == s) && (gBoard[6] == s))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
