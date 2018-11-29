@@ -19,6 +19,8 @@ public class TicTacNo
         {
             // Human vs Human
             case "1":
+
+                gb.InitDisplay();
                 while (!gb.WinCheck("X") && !gb.WinCheck("O") && !gb.IsFull()) {
 
                     int selection = currPlayer.TakeTurn();
@@ -55,13 +57,13 @@ public class TicTacNo
 
     private static void GameSelect()
     {
-        System.out.println("Enter one of the following game types:");
         System.out.println("(1) Human vs Human");
         System.out.println("(2) Human vs Computer");
-        System.out.println("(3) Computer vs Computer\n");
-
+        System.out.println("(3) Computer vs Computer");
+        System.out.print("Select a game type by entering its number value: ");
         Scanner input = new Scanner(System.in);
         gameType = input.next();
+
         boolean valid = false;
         while(!valid)
         {

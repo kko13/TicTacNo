@@ -23,6 +23,13 @@ public class GameBoard
         System.out.printf("%s | %s | %s\n", gBoard[6], gBoard[7], gBoard[8]);
     }
 
+    void InitDisplay()
+    {
+        System.out.printf("\n1 | 2 | 3\n---------\n");
+        System.out.printf("4 | 5 | 6\n---------\n");
+        System.out.printf("7 | 8 | 9\n");
+    }
+
     void UpdateBoard(String mark, int pos)
     {
         gBoard[pos] = mark;
