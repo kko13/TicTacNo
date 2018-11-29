@@ -1,9 +1,8 @@
 // Player base class
-public class Player
+abstract public class Player
 {
     String mark;
-
-
+    int choice;
 
     public Player(String m)
     {
@@ -13,5 +12,10 @@ public class Player
     public String GetMark()
     {
         return this.mark;
+    }
+
+    public int TakeTurn()
+    {
+        return this.choice;
     }
 }
