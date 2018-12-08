@@ -1,11 +1,7 @@
-import java.util.HashSet;
-import java.util.Set;
-
 // GameBoard class
 public class GameBoard
 {
-    String[] gBoard = new String[9];
-    static Set<String> usedSpaces = new HashSet<>();
+    static String[] gBoard = new String[9];
 
     GameBoard()
     {
@@ -33,7 +29,6 @@ public class GameBoard
     void UpdateBoard(String mark, int pos)
     {
         gBoard[pos] = mark;
-        usedSpaces.add(Integer.toString(pos));
     }
 
     boolean IsFull()
@@ -94,4 +89,5 @@ public class GameBoard
 
         return false;
     }
+
 }

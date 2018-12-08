@@ -19,12 +19,10 @@ public class TicTacNo
         {
             // Human vs Human
             case "1":
-
                 gb.InitDisplay();
                 while (!gb.WinCheck("X") && !gb.WinCheck("O") && !gb.IsFull()) {
 
-                    int selection = currPlayer.TakeTurn();
-                    gb.UpdateBoard(currPlayer.GetMark(), selection);
+                    gb.UpdateBoard(currPlayer.GetMark(), currPlayer.TakeTurn());
                     gb.Display();
                     gb.WinCheck(currPlayer.GetMark());
 
@@ -39,12 +37,10 @@ public class TicTacNo
                         lastPlayer = p2;
                     }
                 }
-
                 if (gb.IsFull())
                     System.out.println("No winner! CAT!!!");
                 else
                     System.out.printf("The winner is %s", lastPlayer.GetMark());
-
                 break;
             // Human vs Computer
             case "2":

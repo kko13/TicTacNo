@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // Human sub-class
@@ -12,22 +11,33 @@ public class Human extends Player
     public int TakeTurn()
     {
         System.out.printf("Current Player ---> %s\n", this.mark);
-        System.out.println("Select a space... (1-9)");
-
         Scanner input = new Scanner(System.in);
+        String tempIn;
 
-        while(true)
-        {
-            try
+        // Conversion of input to int and robust input validation
+        do {
+            System.out.println("Select a space... (1-9)");
+            tempIn = input.nextLine();
+
+            // Check for single integer
+            if (Character.isDigit(tempIn.charAt(0)) && tempIn.length() == 1)
             {
-                choice = input.nextInt() - 1;
-                if (!GameBoard.usedSpaces.contains(choice))
-                    return choice;
+                choice = Integer.parseInt(tempIn);
+                
+                // Check that space has not been used already
+                if (GameBoard.gBoard[choice - 1] != " ")
+                {
+                    System.out.println("Space already used, try again...");
+                    choice = 0;
+                }
             }
-            catch (InputMismatchException e)
+            else
             {
-                System.out.println("Must enter a number. Try again...");
+                System.out.println("Please enter one digit...");
+                choice = 0;
             }
-        }
+        } while (choice < 1 || choice > 9);     // Check that input is between 1 and 9
+
+        return (choice - 1);
     }
 }

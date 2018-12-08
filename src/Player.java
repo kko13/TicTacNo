@@ -7,6 +7,7 @@ abstract public class Player
     public Player(String m)
     {
         this.mark = m;
+        this.choice = 0;
     }
 
     public String GetMark()
