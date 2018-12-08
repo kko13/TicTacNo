@@ -8,6 +8,7 @@ public class Human extends Player
         super(m);
     }
 
+    @Override
     public int TakeTurn()
     {
         System.out.printf("Current Player ---> %s\n", this.mark);
@@ -23,7 +24,7 @@ public class Human extends Player
             if (Character.isDigit(tempIn.charAt(0)) && tempIn.length() == 1)
             {
                 choice = Integer.parseInt(tempIn);
-                
+
                 // Check that space has not been used already
                 if (GameBoard.gBoard[choice - 1] != " ")
                 {

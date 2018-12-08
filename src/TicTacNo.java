@@ -15,10 +15,11 @@ public class TicTacNo
         currPlayer = p1;
         lastPlayer = p2;
 
-        switch(gameType)
+/*        switch(gameType)
         {
             // Human vs Human
             case "1":
+            */
                 gb.InitDisplay();
                 while (!gb.WinCheck("X") && !gb.WinCheck("O") && !gb.IsFull()) {
 
@@ -41,14 +42,15 @@ public class TicTacNo
                     System.out.println("No winner! CAT!!!");
                 else
                     System.out.printf("The winner is %s", lastPlayer.GetMark());
-                break;
+/*                break;
             // Human vs Computer
             case "2":
+                gb.InitDisplay();
                 break;
             // Computer vs Computer
             case "3":
                 break;
-        }
+        } */
     }
 
     private static void GameSelect()
