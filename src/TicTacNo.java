@@ -15,42 +15,36 @@ public class TicTacNo
         currPlayer = p1;
         lastPlayer = p2;
 
-/*        switch(gameType)
+        gb.InitDisplay();
+        while (!gb.WinCheck("X") && !gb.WinCheck("O") && !gb.IsFull()) {
+
+            gb.UpdateBoard(currPlayer.GetMark(), currPlayer.TakeTurn());
+            gb.Display();
+            gb.WinCheck(currPlayer.GetMark());
+
+            if (currPlayer.GetMark() == p1.GetMark())
+            {
+                currPlayer = p2;
+                lastPlayer = p1;
+            }
+            else
+            {
+                currPlayer = p1;
+                lastPlayer = p2;
+            }
+        }
+
+        if (gb.IsFull())
         {
-            // Human vs Human
-            case "1":
-            */
-                gb.InitDisplay();
-                while (!gb.WinCheck("X") && !gb.WinCheck("O") && !gb.IsFull()) {
-
-                    gb.UpdateBoard(currPlayer.GetMark(), currPlayer.TakeTurn());
-                    gb.Display();
-                    gb.WinCheck(currPlayer.GetMark());
-
-                    if (currPlayer.GetMark() == p1.GetMark())
-                    {
-                        currPlayer = p2;
-                        lastPlayer = p1;
-                    }
-                    else
-                    {
-                        currPlayer = p1;
-                        lastPlayer = p2;
-                    }
-                }
-                if (gb.IsFull())
-                    System.out.println("No winner! CAT!!!");
-                else
-                    System.out.printf("The winner is %s", lastPlayer.GetMark());
-/*                break;
-            // Human vs Computer
-            case "2":
-                gb.InitDisplay();
-                break;
-            // Computer vs Computer
-            case "3":
-                break;
-        } */
+            if (gb.WinCheck("X"))
+                System.out.println("The winner is X");
+            else if (gb.WinCheck("O"))
+                System.out.println("The winner is O");
+            else
+                System.out.println("No winner! CAT!!!");
+        }
+        else
+            System.out.printf("The winner is %s", lastPlayer.GetMark());
     }
 
     private static void GameSelect()

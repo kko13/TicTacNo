@@ -13,7 +13,7 @@ public class Computer extends Player
         int randChoice;
 
         do {
-            randChoice = rand.nextInt(8);
+            randChoice = rand.nextInt(9);
         }while (GameBoard.gBoard[randChoice] != " ");
 
         return randChoice;
