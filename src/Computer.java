@@ -1,9 +1,7 @@
 import java.util.Random;
 
-public class Computer extends Player
-{
-    Computer(String m)
-    {
+public class Computer extends Player {
+    Computer(String m) {
         super(m);
     }
 

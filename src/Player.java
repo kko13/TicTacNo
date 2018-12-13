@@ -1,22 +1,19 @@
 // Player base class
-abstract public class Player
-{
+abstract public class Player {
+
     String mark;
     int choice;
 
-    public Player(String m)
-    {
+    public Player(String m) {
         this.mark = m;
         this.choice = 0;
     }
 
-    public String GetMark()
-    {
+    public String GetMark() {
         return this.mark;
     }
 
-    public int TakeTurn()
-    {
+    public int TakeTurn() {
         return this.choice;
     }
 }

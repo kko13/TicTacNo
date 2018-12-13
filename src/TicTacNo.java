@@ -1,49 +1,21 @@
 import java.util.Scanner;
 
 // Main TicTacToe Class
-public class TicTacNo
-{
+public class TicTacNo {
+
     static private GameBoard gb;
     static private Player p1, p2, currentPlayer;
     static private String gameType;
 
-    public static void main(String[] args)
-    {
+    private static void GameInit() {
         System.out.println("Tic-Tac-No");
         GameSelect();
         gb = new GameBoard();
-        gb.InitDisplay();
+        gb.Display();
         currentPlayer = p1;
-
-        while (true) {
-
-            gb.UpdateBoard(currentPlayer.GetMark(), currentPlayer.TakeTurn());
-            gb.Display();
-
-            if (gb.WinCheck("X")) {
-                System.out.println("The winner is X");
-                break;
-            }
-            else if (gb.WinCheck("O")) {
-                System.out.println("The winner is O");
-                break;
-            }
-            else if (gb.IsFull()) {
-                System.out.println("No winner! CAT!!!");
-                break;
-            }
-
-            if (currentPlayer == p1)
-                currentPlayer = p2;
-            else
-                currentPlayer = p1;
-        }
     }
 
-
-
-    private static void GameSelect()
-    {
+    private static void GameSelect() {
         System.out.println("(1) Human vs Human");
         System.out.println("(2) Human vs Computer");
         System.out.println("(3) Computer vs Computer");
@@ -81,5 +53,34 @@ public class TicTacNo
                     break;
             }
         }
+    }
+
+    private static void GameLoop() {
+        while (true) {
+
+            gb.UpdateBoard(currentPlayer.GetMark(), currentPlayer.TakeTurn());
+            gb.Display();
+
+            if (gb.WinCheck("X")) {
+                System.out.println("The winner is X");
+                break;
+            } else if (gb.WinCheck("O")) {
+                System.out.println("The winner is O");
+                break;
+            } else if (gb.IsFull()) {
+                System.out.println("No winner! CAT!!!");
+                break;
+            }
+
+            if (currentPlayer == p1)
+                currentPlayer = p2;
+            else
+                currentPlayer = p1;
+        }
+    }
+
+    public static void main(String[] args) {
+        GameInit();
+        GameLoop();
     }
 }

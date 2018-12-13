@@ -1,16 +1,14 @@
 import java.util.Scanner;
 
 // Human sub-class
-public class Human extends Player
-{
-    public Human(String m)
-    {
+public class Human extends Player {
+
+    public Human(String m) {
         super(m);
     }
 
     @Override
-    public int TakeTurn()
-    {
+    public int TakeTurn() {
         System.out.printf("Current Player ---> %s\n", this.mark);
         Scanner input = new Scanner(System.in);
         String tempIn;
@@ -21,19 +19,16 @@ public class Human extends Player
             tempIn = input.nextLine();
 
             // Check for single integer
-            if (Character.isDigit(tempIn.charAt(0)) && tempIn.length() == 1)
-            {
+            if (Character.isDigit(tempIn.charAt(0)) && tempIn.length() == 1) {
                 choice = Integer.parseInt(tempIn);
 
                 // Check that space has not been used already
-                if (GameBoard.gBoard[choice - 1] != " ")
-                {
+                if (GameBoard.gBoard[choice - 1] != " ") {
                     System.out.println("Space already used, try again...");
                     choice = 0;
                 }
             }
-            else
-            {
+            else {
                 System.out.println("Please enter one digit...");
                 choice = 0;
             }

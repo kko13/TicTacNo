@@ -1,6 +1,6 @@
 public class AdvancedComputer extends Player {
-    AdvancedComputer(String m)
-    {
+
+    AdvancedComputer(String m) {
         super(m);
     }
 
