@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class TicTacNo
 {
     static private GameBoard gb;
-    static private Player p1, p2, currPlayer, lastPlayer;
+    static private Player p1, p2, currentPlayer;
     static private String gameType;
 
     public static void main(String[] args)
@@ -12,40 +12,35 @@ public class TicTacNo
         System.out.println("Tic-Tac-No");
         GameSelect();
         gb = new GameBoard();
-        currPlayer = p1;
-        lastPlayer = p2;
-
         gb.InitDisplay();
-        while (!gb.WinCheck("X") && !gb.WinCheck("O") && !gb.IsFull()) {
+        currentPlayer = p1;
 
-            gb.UpdateBoard(currPlayer.GetMark(), currPlayer.TakeTurn());
+        while (true) {
+
+            gb.UpdateBoard(currentPlayer.GetMark(), currentPlayer.TakeTurn());
             gb.Display();
-            gb.WinCheck(currPlayer.GetMark());
 
-            if (currPlayer.GetMark() == p1.GetMark())
-            {
-                currPlayer = p2;
-                lastPlayer = p1;
-            }
-            else
-            {
-                currPlayer = p1;
-                lastPlayer = p2;
-            }
-        }
-
-        if (gb.IsFull())
-        {
-            if (gb.WinCheck("X"))
+            if (gb.WinCheck("X")) {
                 System.out.println("The winner is X");
-            else if (gb.WinCheck("O"))
+                break;
+            }
+            else if (gb.WinCheck("O")) {
                 System.out.println("The winner is O");
-            else
+                break;
+            }
+            else if (gb.IsFull()) {
                 System.out.println("No winner! CAT!!!");
+                break;
+            }
+
+            if (currentPlayer == p1)
+                currentPlayer = p2;
+            else
+                currentPlayer = p1;
         }
-        else
-            System.out.printf("The winner is %s", lastPlayer.GetMark());
     }
+
+
 
     private static void GameSelect()
     {
