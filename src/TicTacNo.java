@@ -1,3 +1,5 @@
+// Kurtis Odom
+// CMD-based Tic-Tac-Toe 
 import java.util.Scanner;
 
 // Main TicTacToe Class
